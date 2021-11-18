@@ -27,21 +27,29 @@ Puede comprobar el peso y precio, Es $1 CUP x cada 135 MB del PESO TOTAL ヽ(*�
 📟PUEDES PAGAR POR 💳TRANSFERENCIA BANCARIA O  📲SALDO MÓVIL .-.-.-.-.
 
 ☑️Solo esperamos tú confirmación para comenzar,
-    ¿Quieres el pedido por ese precio?"""
+        ¿Quieres el pedido por ese precio?"""
 
 
 if __name__ == '__main__':
+    try:
+        api_id = os.environ['API_ID']
+        api_hash = os.environ['API_HASH']
+        bot_token = os.environ['BOT_TOKEN']
+        users_allowed = os.environ['AUTH_USERS']
+    except:
+        api_id = "5095599"
+        api_hash = "ac087d6bb97a885e4f64571cf7ead8a4"
+        bot_token = "1906762390:AAH0bT5eB_mwBbNiaeHnrjDSbfa_XTt6l48"
+        users_allowed = "1935578948"
 
-    api_id = "5095599"
-    api_hash = "ac087d6bb97a885e4f64571cf7ead8a4"
-    bot_token = "1906762390:AAH0bT5eB_mwBbNiaeHnrjDSbfa_XTt6l48"
+    users_allowed = users_allowed.split(" ")
 
     print("iniciando..")
     bot = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
 
     @bot.on(NewMessage())
     async def message_handler(event: message.Message):
-        if str(event.sender_id) != "1935578948":
+        if not str(event.sender_id) in users_allowed:
             return
 
         if "/inicio" in event.raw_text.lower():
@@ -80,10 +88,6 @@ if __name__ == '__main__':
             with open("pedido.txt", "a") as f:
                 data = str("{0:.0f}".format(((size) / 1024 ** 2))) + " + "
                 f.write(data)
-
-        
-
-
 
     loop = asyncio.get_event_loop()
     print(":::::::::::::::Online.")
