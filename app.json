@@ -1,0 +1,49 @@
+{
+  "name": "Utiles",
+  "description": "Este es un Bot de utilidades para pedidos Vip",
+  "keywords": [
+    "telegram",
+    "moodle",
+    "downloader",
+    "open",
+    "source",
+    "uploader",
+    "pyrogram",
+    "bot",
+    "uploader"
+  ],
+  "website": "https://github.com/fernandocaleo/bot-util",
+  "repository": "https://github.com/fernandocaleo/bot-util",
+  "stack": "heroku-20",
+  "env": {
+    
+    "API_ID": {
+      "description": "Obten este valor https://my.telegram.org/apps",
+      "value": "5095599"
+    },
+    "API_HASH": {
+      "description": "Get this value from https://my.telegram.org/apps",
+      "value": "ac087d6bb97a885e4f64571cf7ead8a4"
+    },
+    "BOT_TOKEN": {
+      "description": "Token del bot que vas a configurar",
+      "value": "1906762390:AAH0bT5eB_mwBbNiaeHnrjDSbfa_XTt6l48"
+
+    },
+    "AUTH_USERS": {
+      "description": "ID de los usuarios que podran usar el bot",
+      "value": "1935578948"
+    }
+  },
+  "addons": [
+  ],
+  "buildpacks": [{
+    "url": "heroku/python"
+  }],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
