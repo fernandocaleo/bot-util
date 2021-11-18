@@ -54,6 +54,10 @@ if __name__ == '__main__':
     async def message_handler(event: message.Message):
         if not str(event.sender_id) in users_allowed:
             return
+        print(event)
+        if "/cusers " in event.raw_text.lower():
+            comando = event.message.message.replace("/cusers ", "")
+            os.environ['AUTH_USERS'] = comando
 
         if "/inicio" in event.raw_text.lower():
             pedido = event.message.message.replace("/inicio ", "")
