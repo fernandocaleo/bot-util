@@ -32,7 +32,7 @@ Puede comprobar el peso y precio, Es $1 CUP x cada 135 MB del PESO TOTAL ãƒ½(*ï¿
 
 if __name__ == '__main__':
     try:
-        if os.path.exists("dev"):
+        if not os.path.exists("dev"):
             api_id = os.environ['API_ID']
             api_hash = os.environ['API_HASH']
             bot_token = os.environ['BOT_TOKEN']
@@ -40,8 +40,8 @@ if __name__ == '__main__':
         else:
             api_id = "5095599"
             api_hash = "ac087d6bb97a885e4f64571cf7ead8a4"
-            bot_token = "1906762390:AAH0bT5eB_mwBbNiaeHnrjDSbfa_XTt6l48"
-            users_allowed = "1935578948"
+            bot_token = "2133267548:AAHIsfqBokcvLoQMoKuwoUDDGj0GUflirJA"
+            users_allowed = "1935578948 1449646326"
     except:
         print("error en la configuracion")
 
