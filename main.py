@@ -205,6 +205,7 @@ if __name__ == '__main__':
                         except:
                             pass
         else:
+            if not os.path.exists(str(event.sender_id) + "inicio....orden") and not os.path.exists(str(event.sender_id) + "inicio....suma"):
                 await event.reply("**Al parecer __no has comenzado__ ninguna tarea**")
 
 
